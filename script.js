@@ -49,21 +49,21 @@
  1) Poll Google Map (PG1) and get exact delay (DG1).
  2) Poll Uber (PU1) ang get delay(DU1);
  3) Assuming DG1 > DU1,
- if DG1 + time without traffic + DU1 = now {
- i) then book the cab and send email
- } else {
- i) D1 = DG0 - DG1;
- ii) PG2 = D1 / 2; (Binary search: O(log n))
- iii) Set timer(Time T2) of which will trigger at = now + PG2
- }
+    if DG1 + time without traffic + DU1 = now {
+        i) then book the cab and send email
+    } else {
+        i) D1 = DG0 - DG1;
+        ii) PG2 = D1 / 2; (Binary search: O(log n))
+        iii) Set timer(Time T2) of which will trigger at = now + PG2
+    }
  4) At the Time T2, Poll Google Map (PG2) and get to know delay (DG2).
- 5)  if (DG2 + time without traffic + DU1 - now <= 5 minutes) {
- i) then book the cab
- ii) Send email
- iii) return and exit form program
- } else {
- i) Go to step 3 and continue binary search recursively
- }
+5)  if (DG2 + time without traffic + DU1 - now <= 5 minutes) {
+        i) then book the cab
+        ii) Send email
+        iii) return and exit form program
+    } else {
+        i) Go to step 3 and continue binary search recursively
+    }
 
  So this problem can be solved at time complexity of O(Log n)
  Least number of polls:
